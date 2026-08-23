@@ -49,7 +49,7 @@ section{padding:80px 0}
 .skip{position:absolute;left:-9999px;background:var(--naranja);color:#fff;padding:10px 16px;z-index:100}
 .skip:focus{left:12px;top:12px}
 
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
 
@@ -63,9 +63,9 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .nav-links{display:flex;gap:20px;list-style:none;align-items:center}
 .nav-links a{text-decoration:none;font-size:15px;font-weight:500;opacity:.85}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1;color:var(--naranja)}
-.nav .cta-mini{background:var(--naranja);padding:8px 16px;border-radius:6px;opacity:1;font-weight:600;transition:transform .2s,background .2s}
-.nav .cta-mini:hover{background:var(--naranja-oscuro);color:var(--blanco);transform:translateY(-1px)}
-.menu-btn{display:none;background:none;border:2px solid rgba(255,255,255,.35);color:var(--blanco);border-radius:6px;padding:7px 12px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.nav .cta-mini{background:var(--naranja);color:var(--carbon);padding:10px 16px;border-radius:6px;opacity:1;font-weight:700;transition:transform .2s,box-shadow .2s}
+.nav .cta-mini:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,100,27,.45)}
+.menu-btn{display:none;background:none;border:2px solid rgba(255,255,255,.35);color:var(--blanco);border-radius:6px;padding:11px 16px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 .menu-btn:hover,.menu-btn:focus-visible{border-color:var(--naranja);color:var(--naranja)}
 @media(max-width:860px){
   .menu-btn{display:inline-block}
@@ -86,8 +86,8 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .hero p{max-width:56ch;margin:20px 0 30px;font-size:19px;opacity:.9}
 .botones{display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-block;text-decoration:none;font-weight:600;padding:15px 28px;border-radius:6px;font-size:16px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
-.btn-naranja{background:var(--naranja);color:var(--blanco);box-shadow:0 8px 26px rgba(232,100,27,.35)}
-.btn-naranja:hover,.btn-naranja:focus-visible{background:var(--naranja-oscuro);transform:translateY(-2px)}
+.btn-naranja{background:var(--naranja);color:var(--carbon);font-weight:700;box-shadow:0 8px 26px rgba(232,100,27,.35)}
+.btn-naranja:hover,.btn-naranja:focus-visible{transform:translateY(-3px);box-shadow:0 12px 32px rgba(232,100,27,.5)}
 .btn-borde{border:2px solid rgba(255,255,255,.4);color:var(--blanco);background:transparent}
 .btn-borde:hover,.btn-borde:focus-visible{border-color:var(--naranja);color:var(--naranja);transform:translateY(-2px)}
 .lockup{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:44px 36px;backdrop-filter:blur(4px);animation:float 6s ease-in-out infinite}
@@ -181,8 +181,6 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 input,textarea,select{width:100%;padding:13px 14px;border:1.5px solid #D8D4CC;border-radius:8px;font-family:var(--texto);font-size:16px;background:var(--blanco);transition:border-color .2s,box-shadow .2s}
 input:focus,textarea:focus,select:focus{outline:3px solid var(--naranja-glow);border-color:var(--naranja)}
 .oculto{position:absolute;left:-9999px}
-.datos-contacto{margin-top:24px;display:grid;gap:12px;font-size:17px}
-.datos-contacto strong{font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:15px;color:var(--naranja-texto);display:block}
 .aviso{font-size:13px;color:var(--gris);margin-top:4px}
 .aviso a{color:var(--naranja-texto)}
 
@@ -190,7 +188,7 @@ input:focus,textarea:focus,select:focus{outline:3px solid var(--naranja-glow);bo
 .cta-band h2{font-size:clamp(30px,5vw,48px)}
 .cta-band p{opacity:.85;margin:10px 0 26px}
 
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--naranja);color:#fff;text-align:center;padding:15px 16px;font-weight:700;font-family:var(--display);text-transform:uppercase;letter-spacing:1.5px;font-size:17px;text-decoration:none;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--naranja);color:var(--carbon);text-align:center;padding:15px 16px;font-weight:700;font-family:var(--display);text-transform:uppercase;letter-spacing:1.5px;font-size:17px;text-decoration:none;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
 .sticky-cta.show{transform:none}
 @media(min-width:861px){.sticky-cta{display:none}}
 
@@ -202,13 +200,14 @@ footer a{color:var(--naranja);text-decoration:none}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .hero::after,.hero-logo img,.cinta-track{animation:none}
+  .hero::after,.lockup,.cinta-track{animation:none}
   .tarjeta,.paso,.bcard,.btn,.lista-industrias li{transition:none}
 }
 </style>
+<noscript><style>.rv{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
-<a class="skip" href="#services">Skip to content</a>
+<a class="skip" href="#top">Skip to content</a>
 <header id="hdr">
   <nav class="nav" aria-label="Main navigation">
     <a class="marca" href="#top" aria-label="JV Cleaning home">
@@ -478,7 +477,7 @@ footer a{color:var(--naranja);text-decoration:none}
           <input id="phone" name="phone" type="tel" required autocomplete="tel">
         </div>
         <div>
-          <label for="email">Email</label>
+          <label for="email">Email (optional)</label>
           <input id="email" name="email" type="email" autocomplete="email">
         </div>
         <div>
@@ -514,7 +513,7 @@ footer a{color:var(--naranja);text-decoration:none}
           </select>
         </div>
         <div>
-          <label for="message">What do you need cleaned?</label>
+          <label for="message">What do you need cleaned? (optional)</label>
           <textarea id="message" name="message" rows="4" placeholder="E.g. Medical office, 8,000 sq ft, nightly cleaning plus monthly floor care"></textarea>
         </div>
         <button class="btn btn-naranja" type="submit">Send request</button>
