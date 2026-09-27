@@ -138,6 +138,21 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .pos-lane{object-position:center top}
 .pos-break{object-position:center 28%}
 @media(max-width:640px){.galeria{grid-template-columns:1fr}.galeria .ancho{grid-column:auto}}
+.zoom{cursor:zoom-in}
+.zoom:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+.visor{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;padding:64px 12px 88px;background:rgba(30,33,38,.96);color:var(--hueso);opacity:0;transition:opacity .18s ease-out}
+.visor[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.visor::backdrop{background:transparent}
+.visor.on{opacity:1}
+.visor img{display:block;max-width:100%;max-height:calc(100vh - 190px);max-height:calc(100dvh - 190px);width:auto;height:auto;object-fit:contain;border-radius:8px;transform:scale(.97);transition:transform .2s ease-out}
+.visor.on img{transform:none}
+.visor-txt{font-size:15px;text-align:center;opacity:.85;max-width:40ch}
+.visor button{width:48px;height:48px;border:0;border-radius:999px;font:800 28px/1 var(--display);cursor:pointer}
+.visor-x{position:absolute;top:12px;right:12px;background:var(--naranja);color:var(--carbon)}
+.visor-nav{position:absolute;left:0;right:0;bottom:calc(20px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:24px}
+.visor-nav button{background:var(--hueso);color:var(--carbon)}
+.visor button:focus-visible{outline:3px solid var(--hueso);outline-offset:3px}
+body.visor-abierto{overflow:hidden}
 
 .rhino{background:linear-gradient(180deg,var(--carbon) 0%,var(--carbon-2) 100%);color:var(--blanco);position:relative;overflow:hidden}
 .rhino::before{content:"";position:absolute;left:-140px;top:-40px;bottom:-40px;width:360px;background:repeating-linear-gradient(-45deg,rgba(232,100,27,.1) 0 26px,transparent 26px 52px);pointer-events:none}
@@ -218,6 +233,7 @@ footer a{color:var(--naranja);text-decoration:none}
   .rv{opacity:1;transform:none;transition:none}
   .hero::after,.lockup,.cinta-track{animation:none}
   .tarjeta,.paso,.bcard,.btn,.lista-industrias li{transition:none}
+  .visor,.visor img{transition:none;transform:none}
 }
 </style>
 <noscript><style>.rv{opacity:1 !important;transform:none !important}</style></noscript>
@@ -336,31 +352,31 @@ footer a{color:var(--naranja);text-decoration:none}
     <p class="intro rv rv-d1">Photos from jobs the crew has done.</p>
     <div class="galeria">
       <figure class="ancho rv">
-        <img src="brand/photos/event-hall-floor-1200.webp" srcset="brand/photos/event-hall-floor-800.webp 800w, brand/photos/event-hall-floor-1200.webp 1200w" sizes="(max-width:860px) 100vw, 1032px" width="1200" height="800" alt="Large event hall with a reflective wood floor" loading="lazy">
+        <img src="brand/photos/event-hall-floor-1200.webp" srcset="brand/photos/event-hall-floor-800.webp 800w, brand/photos/event-hall-floor-1200.webp 1200w" sizes="(max-width:860px) 100vw, 1032px" width="1200" height="900" alt="Large event hall with a reflective wood floor" loading="lazy">
         <figcaption>Event hall</figcaption>
       </figure>
       <figure class="rv rv-d1">
-        <img src="brand/photos/lobby-patterned-tile-1200.webp" srcset="brand/photos/lobby-patterned-tile-800.webp 800w, brand/photos/lobby-patterned-tile-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Lobby with a patterned tile floor" loading="lazy">
+        <img src="brand/photos/lobby-patterned-tile-1200.webp" srcset="brand/photos/lobby-patterned-tile-800.webp 800w, brand/photos/lobby-patterned-tile-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="900" alt="Lobby with a patterned tile floor" loading="lazy">
         <figcaption>Lobby</figcaption>
       </figure>
       <figure class="rv rv-d2">
-        <img src="brand/photos/classroom-1200.webp" srcset="brand/photos/classroom-800.webp 800w, brand/photos/classroom-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Empty classroom with rows of desks" loading="lazy">
+        <img src="brand/photos/classroom-1200.webp" srcset="brand/photos/classroom-800.webp 800w, brand/photos/classroom-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="900" alt="Empty classroom with rows of desks" loading="lazy">
         <figcaption>Classroom</figcaption>
       </figure>
       <figure class="rv rv-d1">
-        <img src="brand/photos/restroom-sinks-1200.webp" srcset="brand/photos/restroom-sinks-800.webp 800w, brand/photos/restroom-sinks-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Commercial restroom with a row of sinks and a patterned floor" loading="lazy">
+        <img src="brand/photos/restroom-sinks-1200.webp" srcset="brand/photos/restroom-sinks-800.webp 800w, brand/photos/restroom-sinks-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="900" alt="Commercial restroom with a row of sinks and a patterned floor" loading="lazy">
         <figcaption>Restroom</figcaption>
       </figure>
       <figure class="rv rv-d2">
-        <img class="pos-show" src="brand/photos/showroom-floor-1020.webp" srcset="brand/photos/showroom-floor-800.webp 800w, brand/photos/showroom-floor-1020.webp 1020w" sizes="(max-width:860px) 100vw, 500px" width="1020" height="680" alt="Car showroom with a polished floor" loading="lazy">
+        <img class="pos-show" src="brand/photos/showroom-floor-1020.webp" srcset="brand/photos/showroom-floor-800.webp 800w, brand/photos/showroom-floor-1020.webp 1020w" sizes="(max-width:860px) 100vw, 500px" width="1020" height="1600" alt="Car showroom with a polished floor" loading="lazy">
         <figcaption>Showroom</figcaption>
       </figure>
       <figure class="rv rv-d1">
-        <img class="pos-lane" src="brand/photos/service-lane-floor-640.webp" width="640" height="427" alt="Yellow mop bucket on a clean tile floor" loading="lazy">
+        <img class="pos-lane" src="brand/photos/service-lane-floor-640.webp" width="640" height="1180" alt="Yellow mop bucket on a clean tile floor" loading="lazy">
         <figcaption>Service lane</figcaption>
       </figure>
       <figure class="rv rv-d2">
-        <img class="pos-break" src="brand/photos/break-room-floor-600.webp" width="600" height="400" alt="Break room with blue chairs and a polished concrete floor" loading="lazy">
+        <img class="pos-break" src="brand/photos/break-room-floor-600.webp" width="600" height="1200" alt="Break room with blue chairs and a polished concrete floor" loading="lazy">
         <figcaption>Break room</figcaption>
       </figure>
     </div>
@@ -598,6 +614,16 @@ footer a{color:var(--naranja);text-decoration:none}
   </div>
 </footer>
 
+<dialog id="visor" class="visor" aria-label="Photo">
+  <button type="button" class="visor-x" aria-label="Close photo">&times;</button>
+  <img id="visorImg" alt="">
+  <p id="visorTxt" class="visor-txt"></p>
+  <div class="visor-nav">
+    <button type="button" id="visorPrev" aria-label="Previous photo">&lsaquo;</button>
+    <button type="button" id="visorNext" aria-label="Next photo">&rsaquo;</button>
+  </div>
+</dialog>
+
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -654,6 +680,60 @@ footer a{color:var(--naranja);text-decoration:none}
         if (svc.options[i].text === v) { svc.selectedIndex = i; break; }
       }
     });
+  });
+})();
+(function(){
+  var visor = document.getElementById('visor');
+  if (!visor || !visor.showModal) return;
+  var vImg = document.getElementById('visorImg'), vTxt = document.getElementById('visorTxt');
+  var fotos = [].slice.call(document.querySelectorAll('.tarjeta img.real, .galeria img'));
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var actual = 0, origen = null;
+  function mostrar(i){
+    actual = (i + fotos.length) % fotos.length;
+    var f = fotos[actual];
+    vImg.width = f.getAttribute('width');
+    vImg.height = f.getAttribute('height');
+    vImg.src = f.getAttribute('src');
+    vImg.alt = f.alt;
+    vTxt.textContent = f.alt + ' (' + (actual + 1) + ' of ' + fotos.length + ')';
+  }
+  function abrir(i){
+    origen = fotos[i];
+    mostrar(i);
+    visor.showModal();
+    document.body.classList.add('visor-abierto');
+    if (reduced) visor.classList.add('on');
+    else requestAnimationFrame(function(){ requestAnimationFrame(function(){ visor.classList.add('on'); }); });
+  }
+  function cerrar(){
+    visor.classList.remove('on');
+    setTimeout(function(){
+      if (visor.open) visor.close();
+      document.body.classList.remove('visor-abierto');
+      if (origen) origen.focus();
+    }, reduced ? 0 : 160);
+  }
+  fotos.forEach(function(f, i){
+    f.classList.add('zoom');
+    f.tabIndex = 0;
+    f.setAttribute('role', 'button');
+    f.setAttribute('aria-label', 'Open photo: ' + f.alt);
+    f.addEventListener('click', function(){ abrir(i); });
+    f.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(i); }
+    });
+  });
+  visor.querySelector('.visor-x').addEventListener('click', cerrar);
+  document.getElementById('visorPrev').addEventListener('click', function(){ mostrar(actual - 1); });
+  document.getElementById('visorNext').addEventListener('click', function(){ mostrar(actual + 1); });
+  visor.addEventListener('click', function(e){
+    if (e.target === visor || e.target === vTxt) cerrar();
+  });
+  visor.addEventListener('cancel', function(e){ e.preventDefault(); cerrar(); });
+  visor.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight') mostrar(actual + 1);
+    if (e.key === 'ArrowLeft') mostrar(actual - 1);
   });
 })();
 </script>
