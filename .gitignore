@@ -1,0 +1,9 @@
+# Private material must never enter this public repo
+_private/
+originals/
+for-the-site*/
+*.csv
+*.zip
+HANDOFF*.md
+.DS_Store
+Thumbs.db
