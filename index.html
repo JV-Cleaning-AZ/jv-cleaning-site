@@ -81,17 +81,21 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .hero::after{content:"";position:absolute;right:-160px;top:-40px;bottom:-40px;width:420px;background:repeating-linear-gradient(-45deg,rgba(232,100,27,.13) 0 26px,transparent 26px 52px);pointer-events:none;animation:drift 26s linear infinite}
 @keyframes drift{from{background-position:0 0}to{background-position:0 740px}}
 .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center;position:relative;z-index:1}
-@media(max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-logo{order:-1;max-width:230px;margin:0 auto 4px}}
+@media(max-width:820px){.hero{padding:40px 0 64px}.hero-grid{grid-template-columns:1fr}.hero-logo{max-width:230px;margin:0 auto}}
 .hero h1{font-size:clamp(38px,6.2vw,64px);font-weight:800;max-width:18ch}
 .hero h1 em{font-style:normal;color:var(--naranja);text-shadow:0 0 34px var(--naranja-glow)}
 .hero p{max-width:56ch;margin:20px 0 30px;font-size:19px;opacity:.9}
 .botones{display:flex;gap:14px;flex-wrap:wrap}
+.hero .botones{align-items:flex-start}
+.cta-grupo{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.hero .hero-nota{display:flex;align-items:center;gap:8px;margin:0;font-size:16px;font-weight:500;color:var(--hueso);opacity:1}
+.hero-nota svg{width:18px;height:18px;flex:none;color:var(--naranja)}
 .btn{display:inline-block;text-decoration:none;font-weight:600;padding:15px 28px;border-radius:6px;font-size:16px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
 .btn-naranja{background:var(--naranja);color:var(--carbon);font-weight:700;box-shadow:0 8px 26px rgba(232,100,27,.35)}
 .btn-naranja:hover,.btn-naranja:focus-visible{transform:translateY(-3px);box-shadow:0 12px 32px rgba(232,100,27,.5)}
 .btn-borde{border:2px solid rgba(255,255,255,.4);color:var(--blanco);background:transparent}
 .btn-borde:hover,.btn-borde:focus-visible{border-color:var(--naranja);color:var(--naranja);transform:translateY(-2px)}
-.lockup{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:44px 36px;backdrop-filter:blur(4px);animation:float 6s ease-in-out infinite}
+.lockup{display:flex;flex-direction:column;align-items:center;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:44px 36px;backdrop-filter:blur(4px)}
 .lk-jv{font-family:var(--display);font-weight:800;font-size:96px;line-height:.9;color:var(--naranja);text-shadow:0 0 44px var(--naranja-glow)}
 .lk-cleaning{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;text-transform:uppercase;letter-spacing:3px;color:#fff}
 .lk-llc{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:6px;color:rgba(255,255,255,.65);margin-top:4px}
@@ -100,7 +104,6 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .lk-rhino{margin-top:16px;font-size:14px;font-weight:600;color:var(--naranja);text-decoration:none;border:1px solid rgba(232,100,27,.45);padding:7px 14px;border-radius:999px}
 .lk-rhino:hover,.lk-rhino:focus-visible{background:rgba(232,100,27,.12)}
 @media(max-width:820px){.lk-jv{font-size:64px}.lk-cleaning{font-size:32px}.lockup{padding:28px 22px}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
 .chip{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.4px}
 .chip b{color:var(--naranja)}
@@ -231,7 +234,7 @@ footer a{color:var(--naranja);text-decoration:none}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .hero::after,.lockup,.cinta-track{animation:none}
+  .hero::after,.cinta-track{animation:none}
   .tarjeta,.paso,.bcard,.btn,.lista-industrias li{transition:none}
   .visor,.visor img{transition:none;transform:none}
 }
@@ -265,11 +268,14 @@ footer a{color:var(--naranja);text-decoration:none}
 <section class="hero">
   <div class="contenedor hero-grid">
     <div>
-      <p class="eyebrow rv in">Family-owned commercial cleaning</p>
-      <h1 class="rv in">Commercial cleaning, built on <em>family standards</em> since 2002</h1>
-      <p class="rv in rv-d1">Family-owned commercial cleaning, exterior property care, pressure washing and specialized parking-lot sweeping in Arizona.</p>
+      <p class="eyebrow rv in">Commercial cleaning in Arizona</p>
+      <h1 class="rv in">One family. One contract. <em>Inside and out.</em></h1>
+      <p class="rv in rv-d1">Offices, medical facilities and schools on the inside. Pressure washing and Rhino Sweepers parking-lot sweeping on the outside. Family-owned since 2002.</p>
       <div class="botones rv in rv-d2">
-        <a class="btn btn-naranja" href="#contact">Request a free quote</a>
+        <div class="cta-grupo">
+          <a class="btn btn-naranja" href="#contact">Request a free quote</a>
+          <p class="hero-nota"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Five short questions, about a minute.</p>
+        </div>
         <a class="btn btn-borde" href="#services">See services</a>
       </div>
       <div class="chips rv in rv-d3">
