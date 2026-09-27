@@ -114,6 +114,10 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .tarjeta{background:var(--hueso);border-radius:12px;border-top:5px solid var(--naranja);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .tarjeta:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(30,33,38,.14)}
 .tarjeta img{width:100%;height:170px;object-fit:cover}
+.tarjeta img.real{height:210px}
+.corte-crew{object-position:42% 16%}
+.corte-hall{object-position:center 14%}
+.corte-clinic{object-position:center 34%}
 .tarjeta .cuerpo{padding:26px 24px;display:flex;flex-direction:column;flex:1}
 .tarjeta .num{font-family:var(--display);font-weight:800;font-size:40px;color:rgba(184,74,14,.25);position:absolute;top:10px;right:18px;line-height:1}
 .tarjeta img + .cuerpo .num{display:none}
@@ -122,6 +126,18 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .tarjeta p{color:var(--gris);font-size:16px;flex:1}
 .tarjeta .liga{margin-top:14px;font-weight:600;color:var(--naranja-texto);text-decoration:none;font-size:15px}
 .tarjeta .liga:hover,.tarjeta .liga:focus-visible{text-decoration:underline}
+
+.trabajo{background:var(--hueso)}
+.trabajo .intro{max-width:62ch;color:var(--gris)}
+.galeria{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.galeria .ancho{grid-column:1 / -1}
+.galeria figure{margin:0}
+.galeria img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;background:#E4E1DA}
+.galeria figcaption{margin-top:8px;font-size:15px;color:var(--gris)}
+.pos-show{object-position:center 38%}
+.pos-lane{object-position:center top}
+.pos-break{object-position:center 28%}
+@media(max-width:640px){.galeria{grid-template-columns:1fr}.galeria .ancho{grid-column:auto}}
 
 .rhino{background:linear-gradient(180deg,var(--carbon) 0%,var(--carbon-2) 100%);color:var(--blanco);position:relative;overflow:hidden}
 .rhino::before{content:"";position:absolute;left:-140px;top:-40px;bottom:-40px;width:360px;background:repeating-linear-gradient(-45deg,rgba(232,100,27,.1) 0 26px,transparent 26px 52px);pointer-events:none}
@@ -259,6 +275,7 @@ footer a{color:var(--naranja);text-decoration:none}
     <p class="rv rv-d1" style="max-width:62ch;color:var(--gris)">From daily office cleaning to specialized facilities and exterior property care, one family-owned team covers the whole property.</p>
     <div class="grid-3">
       <div class="tarjeta rv rv-d1">
+        <img class="real corte-hall" src="brand/photos/office-hallway-650.webp" alt="Carpeted office hallway with framed art on the walls" width="650" height="1600" loading="lazy">
         <div class="cuerpo">
           <span class="num">01</span>
           <h3>Commercial and office cleaning</h3>
@@ -267,6 +284,7 @@ footer a{color:var(--naranja);text-decoration:none}
         </div>
       </div>
       <div class="tarjeta rv rv-d2">
+        <img class="real corte-clinic" src="brand/photos/clinic-play-area-640.webp" alt="Clinic waiting room with a children's play corner" width="640" height="1520" loading="lazy">
         <div class="cuerpo">
           <span class="num">02</span>
           <h3>Medical and specialty facilities</h3>
@@ -275,6 +293,7 @@ footer a{color:var(--naranja);text-decoration:none}
         </div>
       </div>
       <div class="tarjeta rv rv-d3">
+        <img class="real corte-crew" src="brand/photos/floor-care-crew-860.webp" srcset="brand/photos/floor-care-crew-800.webp 800w, brand/photos/floor-care-crew-860.webp 860w" sizes="(max-width:860px) 100vw, 340px" alt="Floor technician running a buffer on a concrete shop floor" width="860" height="1560" loading="lazy">
         <div class="cuerpo">
           <span class="num">03</span>
           <h3>Floors, carpets and windows</h3>
@@ -306,6 +325,44 @@ footer a{color:var(--naranja);text-decoration:none}
           <a class="liga" href="#contact" data-service="Parking-lot sweeping (Rhino Sweepers)">Request this service &rarr;</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="trabajo">
+  <div class="contenedor">
+    <p class="eyebrow rv">On the job</p>
+    <h2 class="rv">Real rooms, real floors</h2>
+    <p class="intro rv rv-d1">Photos from jobs the crew has done.</p>
+    <div class="galeria">
+      <figure class="ancho rv">
+        <img src="brand/photos/event-hall-floor-1200.webp" srcset="brand/photos/event-hall-floor-800.webp 800w, brand/photos/event-hall-floor-1200.webp 1200w" sizes="(max-width:860px) 100vw, 1032px" width="1200" height="800" alt="Large event hall with a reflective wood floor" loading="lazy">
+        <figcaption>Event hall</figcaption>
+      </figure>
+      <figure class="rv rv-d1">
+        <img src="brand/photos/lobby-patterned-tile-1200.webp" srcset="brand/photos/lobby-patterned-tile-800.webp 800w, brand/photos/lobby-patterned-tile-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Lobby with a patterned tile floor" loading="lazy">
+        <figcaption>Lobby</figcaption>
+      </figure>
+      <figure class="rv rv-d2">
+        <img src="brand/photos/classroom-1200.webp" srcset="brand/photos/classroom-800.webp 800w, brand/photos/classroom-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Empty classroom with rows of desks" loading="lazy">
+        <figcaption>Classroom</figcaption>
+      </figure>
+      <figure class="rv rv-d1">
+        <img src="brand/photos/restroom-sinks-1200.webp" srcset="brand/photos/restroom-sinks-800.webp 800w, brand/photos/restroom-sinks-1200.webp 1200w" sizes="(max-width:860px) 100vw, 500px" width="1200" height="800" alt="Commercial restroom with a row of sinks and a patterned floor" loading="lazy">
+        <figcaption>Restroom</figcaption>
+      </figure>
+      <figure class="rv rv-d2">
+        <img class="pos-show" src="brand/photos/showroom-floor-1020.webp" srcset="brand/photos/showroom-floor-800.webp 800w, brand/photos/showroom-floor-1020.webp 1020w" sizes="(max-width:860px) 100vw, 500px" width="1020" height="680" alt="Car showroom with a polished floor" loading="lazy">
+        <figcaption>Showroom</figcaption>
+      </figure>
+      <figure class="rv rv-d1">
+        <img class="pos-lane" src="brand/photos/service-lane-floor-640.webp" width="640" height="427" alt="Yellow mop bucket on a clean tile floor" loading="lazy">
+        <figcaption>Service lane</figcaption>
+      </figure>
+      <figure class="rv rv-d2">
+        <img class="pos-break" src="brand/photos/break-room-floor-600.webp" width="600" height="400" alt="Break room with blue chairs and a polished concrete floor" loading="lazy">
+        <figcaption>Break room</figcaption>
+      </figure>
     </div>
   </div>
 </section>
