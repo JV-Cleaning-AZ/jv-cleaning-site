@@ -69,7 +69,7 @@ header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .nav .cta-mini:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,100,27,.45)}
 .menu-btn{display:none;background:none;border:2px solid rgba(255,255,255,.35);color:var(--blanco);border-radius:6px;padding:11px 16px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 .menu-btn:hover,.menu-btn:focus-visible{border-color:var(--naranja);color:var(--naranja)}
-@media(max-width:860px){
+@media(max-width:960px){
   .menu-btn{display:inline-block}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--carbon);flex-direction:column;align-items:stretch;gap:0;padding:8px 0 14px;box-shadow:0 18px 30px rgba(0,0,0,.4)}
   .nav-links.open{display:flex}
@@ -226,10 +226,10 @@ input:focus,textarea:focus,select:focus{outline:3px solid var(--naranja-glow);bo
 
 .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--naranja);color:var(--carbon);text-align:center;padding:15px 16px;font-weight:700;font-family:var(--display);text-transform:uppercase;letter-spacing:1.5px;font-size:17px;text-decoration:none;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
 .sticky-cta.show{transform:none}
-@media(min-width:861px){.sticky-cta{display:none}}
+@media(min-width:961px){.sticky-cta{display:none}}
 
 footer{background:var(--carbon);color:var(--blanco);padding:36px 0 90px;font-size:14px}
-@media(min-width:861px){footer{padding-bottom:36px}}
+@media(min-width:961px){footer{padding-bottom:36px}}
 footer .contenedor{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer a{color:var(--naranja);text-decoration:none}
 
@@ -468,7 +468,7 @@ footer a{color:var(--naranja);text-decoration:none}
     <div class="historia rv">
       <p class="eyebrow">Our story</p>
       <h2>A family legacy of clean</h2>
-      <p><strong>JV Cleaning LLC</strong> has provided professional cleaning services since 2002, built on a simple belief: a clean environment is more than appearance.</p>
+      <p><strong>JV Cleaning LLC</strong> has provided professional cleaning services since 2002, built on a simple belief: a clean environment is more than appearance. It creates spaces that feel welcoming.</p>
       <p>The business began with <strong>Alicia Dom&iacute;nguez</strong>, the family matriarch, whose commitment to excellence set the company's values: understand each client's needs, pay attention to detail and provide dependable service. Today that legacy continues under <strong>Johanna R&iacute;os</strong> and <strong>Samuel Mendoza</strong>, and the company remains family-owned.</p>
     </div>
     <div class="rv rv-d1" id="industries">
@@ -655,7 +655,7 @@ footer a{color:var(--naranja);text-decoration:none}
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measure); }
   window.addEventListener('resize', function(){
     measure();
-    if (window.innerWidth > 860 && links.classList.contains('open')) {
+    if (window.innerWidth > 960 && links.classList.contains('open')) {
       links.classList.remove('open'); btn.setAttribute('aria-expanded','false');
     }
   }, {passive:true});
