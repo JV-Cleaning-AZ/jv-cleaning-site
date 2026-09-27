@@ -17,7 +17,7 @@ Live: https://jvcleaningaz.com (rhinosweepers.com redirects to /#rhino)
 - `thanks.html`, `404.html`: form success page and custom 404.
 - `favicon.svg`: external favicon. Never use a data URI SVG favicon (it broke the head twice).
 - `brand/`: images. `rhino-badge.webp` belongs only in the Rhino section.
-- `_redirects`: keeps `/README.md` from being served.
+- `_redirects`: keeps `/README.md` and `/CLAUDE.md` from being served.
 - `_headers`: security headers.
 - `robots.txt`, `sitemap.xml`: point to https://jvcleaningaz.com
 
